@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/view/ItemDialog.java</file>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/model/Item.java</file>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/view/InvoiceDialog.java</file>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/view/InvoiceFrame.java</file>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/model/Invoice.java</file>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/model/InvoicesTable.java</file>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/controller/Controller.java</file>
-            <file>file:/C:/Users/Engy%20Heshmat/Documents/NetBeansProjects/InvoiceGenerator/src/com/model/ItemsTable.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

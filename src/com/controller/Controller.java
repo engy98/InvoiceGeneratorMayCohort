@@ -18,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.event.ListSelectionEvent;
@@ -85,8 +86,15 @@ public class Controller implements ActionListener, ListSelectionListener {
                 String[] headerSplited=headerData.get(i).split(",");
                 int invoiceId=Integer.parseInt(headerSplited[0]);
                 String invoiceDate=headerSplited[1];
+                char[] buffer=invoiceDate.toCharArray();
+                for(int t=0;t<invoiceDate.length();t++){
+                    if(buffer[t]=='-'){
+                        buffer[t]='/';
+                    }
+                }
+                String dateModified=new String(buffer);
                 String customerName=headerSplited[2];
-                Invoice invoice=new Invoice(invoiceId, invoiceDate, customerName);
+                Invoice invoice=new Invoice(invoiceId, dateModified, customerName);
                 invoicesArr.add(invoice);
             }
             res=fileChooser.showOpenDialog(Frame);
@@ -117,6 +125,15 @@ public class Controller implements ActionListener, ListSelectionListener {
             Frame.setInvTable(table);
             Frame.getInvoicesTable().setModel(table);
             Frame.getInvTable().fireTableDataChanged();
+            for(int q=0;q<invoicesArr.size();q++){
+                System.out.println("Invoice"+invoicesArr.get(q).getId());
+                System.out.println("{");
+                System.out.println("("+invoicesArr.get(q).getDate()+"),"+invoicesArr.get(q).getCustomer());
+                for(int y=0;y<invoicesArr.get(q).getLinesArray().size();y++){
+                    System.out.println(invoicesArr.get(q).getLinesArray().get(y).getName()+","+invoicesArr.get(q).getLinesArray().get(y).getPrice()+","+invoicesArr.get(q).getLinesArray().get(y).getCount());
+                }
+                System.out.println("}");
+            }
           }
                 
         }catch(IOException x){
@@ -218,9 +235,16 @@ public class Controller implements ActionListener, ListSelectionListener {
 
     private void invoiceOk() {
         String date=invoiceDialog.getDateField().getText();
+        char[] buffer=date.toCharArray();
+        for(int x=0;x<buffer.length;x++){
+            if(buffer[x]=='-'){
+                buffer[x]='/';
+            }
+        }
+        String dateModified=new String(buffer);
         String name=invoiceDialog.getNameField().getText();
         int id= Frame.getNextInvId();
-        Invoice invoice=new Invoice(id, date, name);
+        Invoice invoice=new Invoice(id, dateModified, name);
         Frame.getInvoices().add(invoice);
         Frame.getInvTable().fireTableDataChanged();
         invoiceCancel();
